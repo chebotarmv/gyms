@@ -22,7 +22,5 @@ func main() {
 	r.Use(corsMiddleware.Handler)
 
 	r.Get("/calculate", handlers.CalculatePacks)
-	r.Get("/", handlers.ServeUI)
-
 	http.ListenAndServe(":8033", r)
 }

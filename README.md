@@ -6,7 +6,7 @@ Rules for calculation:
 
 | Items ordered | Correct number of packs                | Incorrect number of packs |
 | ------------- | -------------------------------------- | ------------------------- |
-| 1             | 2 x 250                                | 1 x 500                   |
+| 1             | 1 x 250                                | 1 x 500                   |
 | 250           | 1 x 250                                | 1 x 500                   |
 | 251           | 1 x 500                                | 2 x 250                   |
 | 501           | 1 x 500, 1 x 250                       | 1 x 1000 OR 3 x 250       |

@@ -22,7 +22,7 @@ func CalculatePacks(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	neededPacks := calculator.FindPerfectFit(server.PackSizes, item)
+	neededPacks := calculator.FindPerfectPackets(server.PackSizes, item)
 	respMap := make(map[int]int)
 	for _, pack := range neededPacks {
 		respMap[pack]++

@@ -49,7 +49,7 @@ func TestFindExactSum(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		result := FindPerfectFit(test.nums, test.target)
+		result := FindPerfectPackets(test.nums, test.target)
 		if !reflect.DeepEqual(result, test.expected) {
 			t.Errorf("For nums %v and target %d, expected %v, but got %v", test.nums, test.target, test.expected, result)
 		}
