@@ -1,0 +1,19 @@
+version: '3'
+services:
+  go-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8033:8033"
+    environment:
+      PACK_SIZES: "250,500,1000,2000,5000"
+  
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./ui:/usr/share/nginx/html
+    depends_on:
+      - go-server

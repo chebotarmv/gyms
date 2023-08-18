@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pack Calculator</title>
+</head>
+
+<body>
+    <h1>Pack Calculator</h1>
+    <form id="packForm">
+        <label for="items">Number of Items:</label>
+        <input type="number" id="items" name="item" required>
+        <button type="submit">Calculate Packs</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("packForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const item = document.getElementById("items").value;
+            fetch(`http://localhost:8033/calculate?item=${item}`)
+                .then(response => response.json())
+                .then(data => {
+                    const resultElement = document.getElementById("result");
+                    resultElement.innerHTML = `To pack your ${item} items, you need:<br>`;
+
+                    for (const packSize in data) {
+                        resultElement.innerHTML += `${data[packSize]} packs of ${packSize}<br>`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("result").textContent = "An error occurred.";
+                    console.error(error);
+                });
+        });
+    </script>
+</body>
+
+</html>
